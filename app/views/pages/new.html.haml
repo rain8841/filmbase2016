@@ -1,0 +1,10 @@
+%h1.inline_h.headerPages
+  %i.fa.fa-plus
+  =t('NewPage')
+%hr
+
+= render 'form'
+%br
+= link_to '<i class="fa fa-reply"></i>'.html_safe + ' ' + t('Back'), pages_path, class: "btn btn-default"
+
+	

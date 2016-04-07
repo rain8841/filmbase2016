@@ -1,0 +1,53 @@
+%h1.inline_h.headerPages
+  %i.fa.fa-folder-open
+  =t('listPages')
+
+%hr
+
+.container
+  %table.table.table-hover
+    %thead
+      %tr
+        %th= Page.human_attribute_name(:name)
+        %th= Page.human_attribute_name(:short_name) 
+        %th= Page.human_attribute_name(:title)
+        %th= Page.human_attribute_name(:meta_keywords)
+        %th= Page.human_attribute_name(:meta_description)
+        %th= Page.human_attribute_name(:allow_user)
+        %th= Page.human_attribute_name(:show)
+        %th= Page.human_attribute_name(:index)
+        %th
+        %th
+        %th
+
+    %tbody
+      - @pages.each do |page|
+        %tr
+          %td= page.name
+          %td= page.short_name
+          %td= page.title
+          %td= page.meta_keywords
+          %td= page.meta_description
+          
+          -if page.allow_user == true
+            %td
+              %i.fa.fa-check.sign.green_sign
+          -else
+            %td
+              %i.fa.fa-times.sign.red_sign
+              
+          -if page.show == true
+            %td
+              %i.fa.fa-check.sign.green_sign
+          -else
+            %td
+              %i.fa.fa-times.sign.red_sign
+              
+          %td= page.index
+          %td= link_to t('ShowBody'), page, class: "btn btn-default"
+          %td= link_to '<i class="fa fa-pencil-square-o"></i>'.html_safe + ' ' + t('Edit'), edit_page_path(page), class: "btn btn-primary"
+          %td= link_to '<i class="fa fa-trash-o fa-fw"></i>'.html_safe + ' ' + t('Destroy'), page, :method => :delete, :data => { :confirm => t('helpers.sure')}, class: "btn btn-danger"
+
+  %br
+
+= link_to '<i class="fa fa-plus"></i>'.html_safe + ' ' +t('NewPage'), new_page_path, class: "btn btn-primary"

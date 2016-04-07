@@ -7,13 +7,25 @@
       =link_to t('app.name'), root_path, class: 'navbar-brand'
     #navbar-collapse.collapse.navbar-collapse
       %ul.nav.navbar-nav
-        %li=link_to 'Фильмы', films_path
-        %li=link_to 'Персоны', people_path
-        %li=link_to 'Жанры', genres_path
-        %li=link_to 'Страны', countries_path
+        %li= link_to 'Фильмы', films_path
+        %li= link_to 'Персоны', people_path
+        %li= link_to 'Жанры', genres_path
+        %li= link_to 'Страны', countries_path
+        
         -if User.edit_by?(@current_user)
-          %li=link_to 'Пользователи', users_path
-
+          %li= link_to 'Пользователи', users_path
+          %li=link_to '<i class="fa fa-cog"></i>'.html_safe + ' ' + t('AdminZone'), pages_path, class: 'btn btn-default wBut'  
+              
+        -else
+          %li.dropdown
+            =link_to ?#, data: {toggle: 'dropdown'}, class: 'btn btn-default wBut' do
+              %i.fa.fa-bars
+              = t('PageList') 
+              %span.caret
+            %ul.dropdown-menu
+              -@menu_pages.each do |page|
+                %li= link_to page.title, page
+      
       %ul.nav.navbar-nav.navbar-right
         -if @current_user
           %li.dropdown
@@ -25,3 +37,11 @@
         -else
           %li=link_to 'Регистрация', new_user_path
           %li=link_to 'Вход', login_path
+                  
+    #navbar-collapse.collapse.navbar-collapse
+      %ul.nav.navbar-nav
+        -@menu_pages.limit(7).each do |top_page|
+          %li= link_to top_page.title, top_page, class: 'topLinks'
+        
+		
+      

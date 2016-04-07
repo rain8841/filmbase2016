@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :attachments
+  resources :pages
   resources :films
   resources :people
   resources :countries

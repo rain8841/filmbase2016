@@ -4,9 +4,15 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   before_action :set_current_user
+  before_action :load_menu
 
   private
-
+  
+  def load_menu
+     @menu_pages = Page.where(:show => true).ordering
+  end
+  
+  
   def set_current_user
     @current_user = User.where(id: session[:user_id]).first
   end

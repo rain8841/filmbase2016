@@ -1,0 +1,55 @@
+= form_for @page do |f|
+  =error_messages_for @page
+  
+  .form-group
+    .col-xs-4
+      = f.label :name
+      = f.text_field :name, class: 'form-control'
+    
+  .form-group
+    .col-xs-4
+      = f.label :short_name
+      = f.text_field :short_name, class: 'form-control'
+    
+  .form-group
+    .col-xs-4
+      = f.label :title
+      = f.text_field :title, class: 'form-control'
+      .help-block= t('advise_title')
+      
+      
+  .form-group
+    = f.label :meta_keywords
+    = f.text_field :meta_keywords, class: 'form-control', placeholder: 'Введите ключевые слова через запятую'
+    .help-block= t('advise_keywords')
+    
+  .form-group
+    = f.label :meta_description
+    = f.text_field :meta_description, class: 'form-control', placeholder: 'Введите описание для поисковых систем'
+    
+  .form-group
+    = f.label :content
+    = f.text_area :content, class: 'form-control', rows: '12'
+    
+  .form-group
+    .col-xs-4
+      = f.label :index
+      = f.number_field :index, class: 'form-control', placeholder: 'Введите целое число больше 1'
+      .help-block= t('advise_index') 
+    
+  .form-group
+    .col-xs-4
+      = f.label :allow_user
+      = f.check_box :allow_user, class: 'form-control'
+      
+  .form-group
+    = f.label :show
+    = f.check_box :show, class: 'form-control checkbox'
+    
+  %br
+  %br
+  %hr 
+    
+    
+  .actions
+    = f.submit nil, class: 'btn btn-primary'

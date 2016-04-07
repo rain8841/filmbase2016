@@ -1,4 +1,19 @@
 ru:
+  listPages: 'Текущие страницы'
+  PageList: 'Страницы'
+  NewPage: 'Добавить новую страницу'
+  Back: 'Вернуться'
+  ShowBody: 'Просмотреть' 
+  Edit: 'Редактировать'
+  Destroy: 'Удалить'
+  Preview: 'Просмотр страницы'
+  EditH: 'Редактирование страницы'
+  AdminZone: 'Админка'
+  invalKeyWords: 'Неверный формат ключевых слов'
+  advise_keywords: 'Например: Dog, Horse, Appartments...'
+  advise_title: 'Заголовок на вкладке в браузере'
+  advise_index: Номер страницы влияет на порядок отображения
+  
   app:
     name: Каталог видеофильмов
   helpers:
@@ -48,7 +63,18 @@ ru:
         cover: Постер
         description: Описание
         people: Актеры
+      page:
+        name: Название
+        short_name: Краткое название
+        title: Заголовок
+        meta_keywords: SEO Ключевые слова
+        meta_description: SEO Описание
+        content: "<body>"
+        allow_user: "Доступна для пользователей?"
+        show: "Показывать в меню?"
+        index: Позиция в меню 	 	
   views:
+    
     pagination:
       first: ⇤
       last: ⇥

@@ -6,7 +6,7 @@ class CreateFilms < ActiveRecord::Migration
       t.string :slogan
       t.belongs_to :country, index: true, foreign_key: true
       t.belongs_to :genre, index: true, foreign_key: true
-      t.belongs_to :director, index: true, foreign_key: true
+      t.belongs_to :director, index: true
       t.integer :length
       t.integer :year
       t.string :trailer_url
@@ -15,5 +15,6 @@ class CreateFilms < ActiveRecord::Migration
 
       t.timestamps null: false
     end
+    add_foreign_key :films, :people, column: :director_id
   end
 end

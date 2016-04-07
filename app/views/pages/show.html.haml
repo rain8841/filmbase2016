@@ -1,0 +1,10 @@
+%p#notice= notice
+
+%h2
+  = - t('Preview') +": "+ @page.title
+
+
+
+= link_to t('Edit'), edit_page_path(@page), class: "btn btn-primary"
+\|
+= link_to t('Back'), pages_path, class: "btn btn-default"

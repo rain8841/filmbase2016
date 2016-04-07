@@ -19,3 +19,50 @@ $font-size-base: 16px;
 .btn-toolbar {
   padding: $padding-large-vertical 0;
 }
+
+.topLinks {
+  font-weight: bold;
+  font-size: 15px;
+  text-decoration: underline;
+}
+
+.topLinks:hover {
+  font-weight: bold;
+  font-size: 15px;
+  text-decoration: underline;
+}
+
+.wBut {
+  font-weight: bold;
+}
+
+.headerPages {
+  color: #5555AA;
+  text-decoration: none;
+}
+
+.headerPages:focus {
+  text-decoration: none;
+}
+
+.headerPages:hover {
+  text-decoration: none;
+}
+
+.inline_h {
+ display: inline;
+}
+
+.sign {
+  font-size: 22px;
+}
+
+.green_sign {
+ color: #22AA22;
+
+}
+
+.red_sign {
+ color: #AA2222;
+
+}
