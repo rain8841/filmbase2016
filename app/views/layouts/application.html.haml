@@ -12,3 +12,13 @@
       =render 'flash_messages'
       = yield
       =render 'footer'
+      
+      :javascript
+        $(function() {
+          $('#init_content_editor').froalaEditor({placeholderText: 'Здесь вы можете редактировать верстку страницы...', height: 300, toolbarSticky: false}).on('froalaEditor.contentChanged', function (e, editor) {
+             $('#preview').html(editor.html.get());
+           })
+           
+        });
+      
+

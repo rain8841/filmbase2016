@@ -7,6 +7,9 @@ $font-size-base: 16px;
 @import "fonts";
 @import "token-input-bootstrap3";
 
+body {
+  
+}
 
 .field_with_errors {
   @extend .has-error;
@@ -50,19 +53,40 @@ $font-size-base: 16px;
 }
 
 .green_sign {
- color: #22AA22;
+  color: #22AA22;
 
 }
 
 .red_sign {
- color: #AA2222;
+  color: #AA2222;
 
 }
 
 textarea {
- resize:none;
- overflow-y: scroll;
+  width: 100%;
+  resize:none;
+  overflow-y: scroll;
  
 }
 
-.cb {width: 30px; height: 30px;}
+.wide {
+  text-align: left;
+  background-color: rgb(119, 119, 119);
+  color: white;
+  width: 100%;
+  margin: 0px;
+  display: inline-block;
+ 
+}
+
+.downTab {
+  width: 100%;
+  padding: 0px;
+  margin: 0px;
+}
+
+.mid {
+  margin-top: 100px;
+  margin-bottom: 10px;
+  text-align: center;
+}

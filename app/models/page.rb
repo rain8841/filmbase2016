@@ -1,5 +1,5 @@
 class Page < ActiveRecord::Base
-  @keywords_regex = /^([a-z])(,\s*[a-z]+)*$/i
+  @keywords_regex = /^([a-z]+)(,\s*[a-z]+)*$/i
   
   validates :name, presence: true, length: {minimum: 2, maximum: 25}
   validates :short_name, presence: true, length: {minimum: 2, maximum: 10}

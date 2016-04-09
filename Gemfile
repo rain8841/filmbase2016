@@ -63,3 +63,4 @@ gem 'httparty'
 gem 'mechanize'
 gem 'ru_propisju'
 gem 'maskedinput-rails'
+gem "wysiwyg-rails"

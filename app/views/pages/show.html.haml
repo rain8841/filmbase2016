@@ -3,8 +3,11 @@
 %h2.inline_h.headerPages
   %i.fa.fa-hand-o-right
   = - t('Preview') +': '+ @page.title
-
+  
 %hr
+= raw(@page.content)
+%hr
+
 -if User.edit_by?(@current_user)
   = link_to link_to '<i class="fa fa-pencil-square-o"></i>'.html_safe + ' ' + t('Edit'), edit_page_path(@page), class: "btn btn-primary"
   \|

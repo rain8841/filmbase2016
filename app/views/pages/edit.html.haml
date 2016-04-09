@@ -4,3 +4,15 @@
 
 = render 'form'
 
+%table.table.downTab
+  %thead
+    %th.form-control.wide= t('bufContent')
+  %tbody
+    %tr.success
+      %td
+        %textarea{rows: '12',readonly: true}
+          = raw(@page.content)
+= link_to '<i class="fa fa-long-arrow-right"></i>'.html_safe + ' ' +  t('ShowBodyEd'), @page, class: "btn btn-success btn-block btn-md", :target => "_blank"      
+%br
+
+

@@ -14,7 +14,10 @@ ru:
   invalKeyWords: 'Неверный формат ключевых слов'
   advise_keywords: 'Например: Dog, Horse, Appartments...'
   advise_title: 'Заголовок на вкладке в браузере'
-  advise_index: Номер страницы влияет на порядок отображения
+  advise_index: 'Номер страницы влияет на порядок отображения'
+  sourceContent: 'LIVE Сгенерированный несохраненный HTML код'
+  bufContent: 'Текущий сохраненный HTML код'
+  ccc: 'Редактор Контента'
   
   app:
     name: Каталог видеофильмов
@@ -71,7 +74,7 @@ ru:
         title: Заголовок
         meta_keywords: SEO Ключевые слова
         meta_description: SEO Описание
-        content: "<body>"
+        content: Контент
         allow_user: "Доступна для пользователей?"
         show: "Показывать в меню?"
         index: Позиция в меню 	 	

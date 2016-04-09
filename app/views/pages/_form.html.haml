@@ -1,58 +1,71 @@
 = form_for @page do |f|
   =error_messages_for @page
   
-  .form-group
-    .col-xs-4
-      = f.label :name
-      = f.text_field :name, class: 'form-control', placeholder: 'Введите название страницы'
+  %hr
+  .form-vertical
+    .form-group
+      .col-xs-4
+        = f.label :name, class: 'form-control wide'
+        = f.text_field :name, class: 'form-control', placeholder: 'Введите название страницы'
     
-  .form-group
-    .col-xs-4
-      = f.label :short_name
-      = f.text_field :short_name, class: 'form-control', placeholder: 'Введите краткий псевдоним'
+    .form-group
+      .col-xs-4
+        = f.label :short_name, class: 'form-control wide'
+        = f.text_field :short_name, class: 'form-control', placeholder: 'Введите краткий псевдоним'
     
-  .form-group
-    .col-xs-4
-      = f.label :title
-      = f.text_field :title, class: 'form-control', placeholder: 'Введите заголовок страницы'
-      .help-block= t('advise_title')
+    .form-group
+      .col-xs-4
+        = f.label :title, class: 'form-control wide'
+        = f.text_field :title, class: 'form-control', placeholder: 'Введите заголовок страницы'
+        .help-block= t('advise_title')
+        
+  .form-vertical 
+    .form-group
+      = f.label :meta_keywords, class: 'form-control wide'
+      = f.text_field :meta_keywords, class: 'form-control', placeholder: 'Введите ключевые слова через запятую'
+      .help-block= t('advise_keywords')
+    
+    .form-group
+      = f.label :meta_description, class: 'form-control wide'
+      = f.text_field :meta_description, class: 'form-control', placeholder: 'Введите описание для поисковых систем'
+      %br
+   
+  .form-vertical
+    .form-group 
+      = f.label :content, t('ccc'), class: 'form-control wide'
+      %textarea#init_content_editor
+      %br
+    
+    .form-group
+      = f.label :content, t('sourceContent'), class: 'form-control wide'
+      = f.text_area :content, class: 'form-control', rows: '12', :id => "preview", :readonly => true 
       
-      
-  .form-group
-    = f.label :meta_keywords
-    = f.text_field :meta_keywords, class: 'form-control', placeholder: 'Введите ключевые слова через запятую'
-    .help-block= t('advise_keywords')
-    
-  .form-group
-    = f.label :meta_description
-    = f.text_field :meta_description, class: 'form-control', placeholder: 'Введите описание для поисковых систем'
-    
-  .form-group
-    = f.label :content
-    = f.text_area :content, class: 'form-control', rows: '12'
-    = link_to '<i class="fa fa-long-arrow-right"></i>'.html_safe + ' ' +  t('ShowBodyEd'), @page, class: "btn btn-success btn-block", :target => "_blank"
-    
-  .form-group
-    .col-xs-4
-      = f.label :index
-      = f.number_field :index, class: 'form-control', placeholder: 'Введите целое число больше 1'
-      .help-block= t('advise_index') 
-    
-  .form-group
-    .col-xs-4
-      = f.label :allow_user
-      = f.check_box :allow_user, class: 'form-control'
-      
-  .form-group
-    = f.label :show
-    = f.check_box :show, class: 'form-control'
-    
   %br
-  %br
-  %hr 
-    
+  .form-vertical            
+    .form-group
+      .col-xs-4
+        = f.label :index, class: 'form-control wide'
+        = f.number_field :index, class: 'form-control', placeholder: 'Введите целое число больше 1'
+        .help-block= t('advise_index') 
+      
+  .form-vertical
+    .form-group
+      .col-xs-4
+        = f.check_box :allow_user
+        = f.label :allow_user
+        
+  .form-vertical
+    .form-group
+      .col-xs-4      
+        = f.check_box :show
+        = f.label :show
+      
   .actions
-    = f.submit nil, class: 'btn btn-primary'
-    \|
-    = link_to '<i class="fa fa-reply"></i>'.html_safe + ' ' + t('Back_to'), pages_path, class: "btn btn-default"
-%br
+    .mid
+      = f.submit nil, class: 'btn btn-primary btn-md'
+      \|
+      = link_to '<i class="fa fa-reply"></i>'.html_safe + ' ' + t('Back_to'), pages_path, class: 'btn btn-default btn-md'
+
+%hr
+
+  
