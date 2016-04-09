@@ -18,7 +18,6 @@
         %th= Page.human_attribute_name(:index)
         %th
         %th
-        %th
 
     %tbody
       - @pages.each do |page|
@@ -44,6 +43,7 @@
               %i.fa.fa-times.sign.red_sign
               
           %td= page.index
+          
           %td= link_to t('ShowBody'), page, class: "btn btn-default"
           %td= link_to '<i class="fa fa-pencil-square-o"></i>'.html_safe + ' ' + t('Edit'), edit_page_path(page), class: "btn btn-primary"
           %td= link_to '<i class="fa fa-trash-o fa-fw"></i>'.html_safe + ' ' + t('Destroy'), page, :method => :delete, :data => { :confirm => t('helpers.sure')}, class: "btn btn-danger"

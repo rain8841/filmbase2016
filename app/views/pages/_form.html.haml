@@ -4,17 +4,17 @@
   .form-group
     .col-xs-4
       = f.label :name
-      = f.text_field :name, class: 'form-control'
+      = f.text_field :name, class: 'form-control', placeholder: 'Введите название страницы'
     
   .form-group
     .col-xs-4
       = f.label :short_name
-      = f.text_field :short_name, class: 'form-control'
+      = f.text_field :short_name, class: 'form-control', placeholder: 'Введите краткий псевдоним'
     
   .form-group
     .col-xs-4
       = f.label :title
-      = f.text_field :title, class: 'form-control'
+      = f.text_field :title, class: 'form-control', placeholder: 'Введите заголовок страницы'
       .help-block= t('advise_title')
       
       
@@ -30,6 +30,7 @@
   .form-group
     = f.label :content
     = f.text_area :content, class: 'form-control', rows: '12'
+    = link_to '<i class="fa fa-long-arrow-right"></i>'.html_safe + ' ' +  t('ShowBodyEd'), @page, class: "btn btn-success btn-block", :target => "_blank"
     
   .form-group
     .col-xs-4
@@ -44,12 +45,14 @@
       
   .form-group
     = f.label :show
-    = f.check_box :show, class: 'form-control checkbox'
+    = f.check_box :show, class: 'form-control'
     
   %br
   %br
   %hr 
     
-    
   .actions
     = f.submit nil, class: 'btn btn-primary'
+    \|
+    = link_to '<i class="fa fa-reply"></i>'.html_safe + ' ' + t('Back_to'), pages_path, class: "btn btn-default"
+%br
