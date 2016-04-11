@@ -12,7 +12,6 @@ class ApplicationController < ActionController::Base
      @menu_pages = Page.where(:show => true).ordering
   end
   
-  
   def set_current_user
     @current_user = User.where(id: session[:user_id]).first
   end

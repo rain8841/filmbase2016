@@ -1,9 +1,9 @@
 ru:
-  listPages: 'Текущие страницы'
   PageList: 'Страницы'
   NewPage: 'Добавить новую страницу'
   Back: 'Вернуться'
   Back_to: 'Назад к списку страниц'
+  Back_to_Attach: 'Назад к списку файлов'
   ShowBody: 'Просмотреть'
   ShowBodyEd: 'Предварительный просмотр' 
   Edit: 'Редактировать'
@@ -18,6 +18,15 @@ ru:
   sourceContent: 'LIVE Сгенерированный несохраненный HTML код'
   bufContent: 'Текущий сохраненный HTML код'
   ccc: 'Редактор Контента'
+  ControlPage: 'Управление cтраницами'
+  ControlAttachments: 'Управление файлами'
+  CurAttachments: 'Текущие файлы'
+  СurPages: 'Текущие страницы'
+  UploadFile: 'Загрузить новый файл'
+  Document_link: 'Ссылка'
+  DownloadFile: 'Скачать'
+  AddAttachment: 'Загрузка нового файла'
+  AttachCreatedAt: 'Дата/Время загрузки'
   
   app:
     name: Каталог видеофильмов
@@ -77,9 +86,12 @@ ru:
         content: Контент
         allow_user: "Доступна для пользователей?"
         show: "Показывать в меню?"
-        index: Позиция в меню 	 	
+        index: Позиция в меню
+      attachment:  
+        position: Позиция
+        user_id: Загружен
+        
   views:
-    
     pagination:
       first: ⇤
       last: ⇥

@@ -4,7 +4,6 @@ class CreateAttachments < ActiveRecord::Migration
       t.attachment :document
       t.integer :position
       t.references :user, index: true, foreign_key: true
-
       t.timestamps null: false
     end
   end

@@ -1,10 +1,14 @@
 class AttachmentsController < ApplicationController
+  before_action :check_authentication, except: :index
+  before_action :set_user, only: [:new, :create]
   before_action :set_attachment, only: [:show, :edit, :update, :destroy]
-
+  before_action :check_browse, only: [:index ,:show, :edit, :update, :destroy]
+  
+  
   # GET /attachments
   # GET /attachments.json
   def index
-    @attachments = Attachment.all
+    @attachments = Attachment.order('created_at')
   end
 
   # GET /attachments/1
@@ -14,7 +18,7 @@ class AttachmentsController < ApplicationController
 
   # GET /attachments/new
   def new
-    @attachment = Attachment.new
+    @attachment = @user.attachments.new
   end
 
   # GET /attachments/1/edit
@@ -24,12 +28,12 @@ class AttachmentsController < ApplicationController
   # POST /attachments
   # POST /attachments.json
   def create
-    @attachment = Attachment.new(attachment_params)
+    @attachment = @user.attachments.new(attachment_params)
 
     respond_to do |format|
       if @attachment.save
-        format.html { redirect_to @attachment, notice: 'Attachment was successfully created.' }
-        format.json { render :show, status: :created, location: @attachment }
+        format.html { redirect_to attachments_url, notice: 'Файл успешно загружен' }
+        format.json { render :index, status: :created, location: @attachment }
       else
         format.html { render :new }
         format.json { render json: @attachment.errors, status: :unprocessable_entity }
@@ -42,8 +46,8 @@ class AttachmentsController < ApplicationController
   def update
     respond_to do |format|
       if @attachment.update(attachment_params)
-        format.html { redirect_to @attachment, notice: 'Attachment was successfully updated.' }
-        format.json { render :show, status: :ok, location: @attachment }
+        format.html { redirect_to attachments_url, notice: 'Вложение изменено.' }
+        format.json { render :index, status: :ok, location: @attachment }
       else
         format.html { render :edit }
         format.json { render json: @attachment.errors, status: :unprocessable_entity }
@@ -56,7 +60,7 @@ class AttachmentsController < ApplicationController
   def destroy
     @attachment.destroy
     respond_to do |format|
-      format.html { redirect_to attachments_url, notice: 'Attachment was successfully destroyed.' }
+      format.html { redirect_to attachments_url, notice: 'Вложение удалено.' }
       format.json { head :no_content }
     end
   end
@@ -67,8 +71,17 @@ class AttachmentsController < ApplicationController
       @attachment = Attachment.find(params[:id])
     end
 
+    def set_user
+      @user = @current_user
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def attachment_params
-      params.require(:attachment).permit(:position, :user_id)
+      params.require(:attachment).permit(:document)
     end
+    
+    def check_browse
+      render_error unless User.edit_by?(@current_user)
+    end
+    
 end

@@ -1,23 +1,33 @@
-%h1 Listing attachments
+%h1.inline_h.headerPages
+  %i.fa.fa-paperclip
+  =t('CurAttachments')
 
-%table
-  %thead
-    %tr
-      %th Position
-      %th User
-      %th
-      %th
-      %th
+%hr
 
-  %tbody
-    - @attachments.each do |attachment|
+.container
+  %table.table.table-hover
+    %thead
       %tr
-        %td= attachment.position
-        %td= attachment.user
-        %td= link_to 'Show', attachment
-        %td= link_to 'Edit', edit_attachment_path(attachment)
-        %td= link_to 'Destroy', attachment, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        %th= Attachment.human_attribute_name(:position)
+        %th= Attachment.human_attribute_name(:user_id)
+        %th= t('Document_link')
+        %th= t('AttachCreatedAt')
+        %th
+        %th
+        
+    %tbody
+      - @attachments.each do |attachment|
+        %tr
+          %td= attachment.position
+          %td= attachment.user_id
+          %td= attachment.document
+          %td= attachment.created_at
+          %td= link_to '<i class="fa fa-pencil-square-o"></i>'.html_safe + ' ' + t('DownloadFile'), attachment.document.url(:original, false), class: "btn btn-primary"
+          %td= link_to '<i class="fa fa-trash-o fa-fw"></i>'.html_safe + ' ' + t('Destroy'), attachment, :method => :delete, :data => { :confirm => t('helpers.sure')}, class: "btn btn-danger"
+
 
 %br
+  
+= link_to '<i class="fa fa-paperclip"></i>'.html_safe + ' ' +t('UploadFile'), new_attachment_path, class: 'btn btn-primary'
 
-= link_to 'New Attachment', new_attachment_path
+  

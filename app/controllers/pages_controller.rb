@@ -1,4 +1,5 @@
 class PagesController < ApplicationController
+  before_action :check_authentication, except: [:show]
   before_action :check_browse, except: [:show]
   before_action :set_page, only: [:show, :edit, :update, :destroy]
   before_action :load_pages
@@ -68,6 +69,7 @@ class PagesController < ApplicationController
   end
 
   private
+  
     # Use callbacks to share common setup or constraints between actions.
     def set_page
       @page = Page.find(params[:id])
@@ -79,11 +81,11 @@ class PagesController < ApplicationController
     end
     
     def check_browse
-    render_error unless User.edit_by?(@current_user)
+      render_error unless User.edit_by?(@current_user)
     end
     
-  
-  def load_pages
-    @pages = Page.all
-  end
+    def load_pages
+      @pages = Page.all
+    end
+    
 end

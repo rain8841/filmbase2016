@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :attachments
+  resources :attachments, :except => [:show, :edit, :update]
   resources :pages
   resources :films
   resources :people
