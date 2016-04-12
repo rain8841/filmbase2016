@@ -19,7 +19,7 @@
       - @attachments.each do |attachment|
         %tr
           %td= attachment.position
-          %td= attachment.user_id
+          %td= attachment.user.name
           %td= attachment.document
           %td= attachment.created_at
           %td= link_to '<i class="fa fa-pencil-square-o"></i>'.html_safe + ' ' + t('DownloadFile'), attachment.document.url(:original, false), class: "btn btn-primary"

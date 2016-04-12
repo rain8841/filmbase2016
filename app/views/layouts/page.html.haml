@@ -1,0 +1,26 @@
+!!!
+%html
+  %head
+    %meta{charset: 'utf-8'}
+    %meta{:name => "Description", :content => @page.description}
+    %meta{:name => "Keywords", :content => @page.keywords}
+    %title= @page.title
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  %body
+    =render 'topbar'
+    .container
+      =render 'flash_messages'
+      = yield
+      =render 'footer'
+      
+      :javascript
+        $(function() {
+          $('#init_content_editor').froalaEditor({placeholderText: 'Здесь вы можете редактировать верстку страницы...', height: 300, toolbarSticky: false}).on('froalaEditor.contentChanged', function (e, editor) {
+             $('#preview').html(editor.html.get());
+           })
+           
+        });
+      
+

@@ -1,4 +1,5 @@
 class AttachmentsController < ApplicationController
+  
   before_action :check_authentication, except: :index
   before_action :set_user, only: [:new, :create]
   before_action :set_attachment, only: [:show, :edit, :update, :destroy]
@@ -8,7 +9,7 @@ class AttachmentsController < ApplicationController
   # GET /attachments
   # GET /attachments.json
   def index
-    @attachments = Attachment.order('created_at')
+    @attachments = Attachment.full.order('created_at')
   end
 
   # GET /attachments/1
