@@ -1,10 +1,8 @@
 class AttachmentsController < ApplicationController
-  
+
   before_action :check_authentication, except: :index
-  before_action :set_user, only: [:new, :create]
   before_action :set_attachment, only: [:show, :edit, :update, :destroy]
   before_action :check_browse, only: [:index ,:show, :edit, :update, :destroy]
-  
   
   # GET /attachments
   # GET /attachments.json
@@ -19,7 +17,7 @@ class AttachmentsController < ApplicationController
 
   # GET /attachments/new
   def new
-    @attachment = @user.attachments.new
+    @attachment = @current_user.attachments.new
   end
 
   # GET /attachments/1/edit
@@ -29,7 +27,7 @@ class AttachmentsController < ApplicationController
   # POST /attachments
   # POST /attachments.json
   def create
-    @attachment = @user.attachments.new(attachment_params)
+    @attachment = @current_user.attachments.new(attachment_params)
 
     respond_to do |format|
       if @attachment.save
@@ -70,10 +68,6 @@ class AttachmentsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_attachment
       @attachment = Attachment.find(params[:id])
-    end
-
-    def set_user
-      @user = @current_user
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

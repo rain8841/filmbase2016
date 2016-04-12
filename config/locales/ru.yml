@@ -23,7 +23,7 @@ ru:
   CurAttachments: 'Текущие файлы'
   СurPages: 'Текущие страницы'
   UploadFile: 'Загрузить новый файл'
-  Document_link: 'Ссылка'
+  Document_link: 'Прямая Ссылка'
   DownloadFile: 'Скачать'
   AddAttachment: 'Загрузка нового файла'
   AttachCreatedAt: 'Дата/Время загрузки'
@@ -88,8 +88,8 @@ ru:
         show: "Показывать в меню?"
         index: Позиция в меню
       attachment:  
-        position: Позиция
-        user_id: Загружен
+        position: Позиция (В рамках пользователя)
+        user_id: Кем Загружен
         
   views:
     pagination:

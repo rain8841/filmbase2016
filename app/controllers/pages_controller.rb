@@ -1,4 +1,6 @@
 class PagesController < ApplicationController
+  layout "page", except: [:index]
+
   before_action :check_authentication, except: [:show]
   before_action :check_browse, except: [:show]
   before_action :set_page, only: [:show, :edit, :update, :destroy]
