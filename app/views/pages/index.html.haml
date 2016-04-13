@@ -30,20 +30,20 @@
           %td= page.meta_description
           
           -if page.allow_user == true
-            %td
+            %td.centerTd
               %i.fa.fa-check.sign.green_sign
           -else
-            %td
+            %td.centerTd
               %i.fa.fa-times.sign.red_sign
               
           -if page.show == true
-            %td
+            %td.centerTd
               %i.fa.fa-check.sign.green_sign
           -else
-            %td
+            %td.centerTd
               %i.fa.fa-times.sign.red_sign
               
-          %td= page.index
+          %td.centerTd= page.index
           
           %td= link_to t('ShowBody'), page, class: "btn btn-default"
           %td= link_to '<i class="fa fa-pencil-square-o"></i>'.html_safe + ' ' + t('Edit'), edit_page_path(page), class: "btn btn-primary"
